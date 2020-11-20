@@ -1,4 +1,3 @@
-![](http://miaozn.github.io/misc/img/xsd2xml.png)     
 # xsd2xml
 This is a simple python script to help you generate some xmls if you have a xsd. It uses the [xmlschema](https://github.com/brunato/xmlschema) library to parse the given schema document and then populate some hardcoded values. check the following example. 
 
