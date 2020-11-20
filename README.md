@@ -94,12 +94,12 @@ This is a simple python script to help you generate some xmls if you have a xsd.
 ```
 The command to get the above xml:  
 ```bash
-$ python xsd2xml.py -s 1.xsd -e root | xmllint --format -
+$ python3 xsd2xml.py -s 1.xsd -e root | xmllint --format -
 ```
 ## Usage
 ```bash
 $ ./xsd2xml.py -h
-usage: adv.xsd2xml.py [-h] -s XSDFILE -e ELEMENT [-c]
+usage: xsd2xml.py [-h] -s XSDFILE -e ELEMENT [-c] [-t TEMPLATE_PATH] [-d] [-p]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -107,13 +107,19 @@ optional arguments:
                         select the xsd used to generate xml
   -e ELEMENT, --element ELEMENT
                         select an element to dump xml
+  -t TEMPLATE, --template TEMPLATE
+                        template for tag content
+  -d, --default_namespaces
+                        use default namespaces for xml generation
   -c, --choice          enable the <choice> mode
+  -p PRINT_COMMENTS, --print_comments PRINT_COMMENTS
+                        print comments to result xml
 ```
 ## Handle `<choice>`
 You can generate all in a choice group (as the above example shows) or you can generate the 1st element in the choice group by the "-c" option.
 ### command
 ```bash
-$ python xsd2xml.py -s 1.xsd -e root -c | xmllint --format -
+$ python3 xsd2xml.py -s 1.xsd -e root -c | xmllint --format -
 ```
 ### xml
 ```xml
