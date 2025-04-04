@@ -207,17 +207,17 @@ class GenXML:
             n = self.use_short_ns(node.name)
             if node.type.is_simple():
                 self.print_comment('simple content')
-                tp = str(node.type.content_type)
+                tp = str(node.type.content)
                 print(self.start_tag(n) + self.genval(tp) + self.end_tag(n))
-            elif not isinstance(node.type.content_type, XsdGroup):
+            elif not isinstance(node.type.content, XsdGroup):
                 self.print_comment('complex content')
                 attrs = self.gen_attrs(node.attributes)
-                tp = node.type.content_type.name
+                tp = node.type.content.name
                 print(self.start_tag(n, attrs) + self.genval(tp) + self.end_tag(n))
             else:
                 self.print_comment('complex content')
                 print(self.start_tag(n))
-                self.group2xml(node.type.content_type)
+                self.group2xml(node.type.content)
                 print(self.end_tag(n))
 
         elif isinstance(node.type, XsdAtomicBuiltin):
